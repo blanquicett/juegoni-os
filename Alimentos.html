@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Sorting - Juegos Didácticos</title>
+    <link rel="stylesheet" href="./css/alimentos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú superior -->
+    <nav class="menu-principal">
+        <div class="menu-container">
+            <div class="logo">
+                <h1>Food Sorting</h1>
+            </div>
+            <button class="btn-volver" onclick="window.location.href='index.html'">
+                ← Volver al menú
+            </button>
+        </div>
+    </nav>
+
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla-nivel">
+        <div class="nivel-container">
+            <h2>Select Level</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Easy
+                    <span class="nivel-descripcion">FOR BEGINNERS</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Medium
+                    <span class="nivel-descripcion">FOR INTERMEDIATE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Área principal del juego -->
+    <main id="juego-container" class="juego-container" style="display: none;">
+        <!-- Panel de puntuación -->
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Puntos:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="aciertos">
+                <span>✅ Aciertos:</span>
+                <span id="contador-aciertos">0</span>
+            </div>
+        </div>
+
+        <!-- Áreas de categorías -->
+        <div class="categorias-container">
+            <div class="categoria-drop" id="frutas" data-categoria="frutas">
+                <h3>🍎 FRUITS</h3>
+            </div>
+            <div class="categoria-drop" id="verduras" data-categoria="verduras">
+                <h3>🥕 VEGETABLES</h3>
+            </div>
+        </div>
+
+        <!-- Área de alimentos para clasificar -->
+        <div class="alimentos-container" id="alimentos-container">
+            <!-- Los alimentos se generarán dinámicamente -->
+        </div>
+
+        <!-- Panel de resultados -->
+        <div id="panel-resultados" class="panel-resultados" style="display: none;">
+            <h2>¡Excelente trabajo! 🎉</h2>
+            <div class="resultados-content">
+                <p>Puntuación final: <span id="puntuacion-final">0</span></p>
+                <p>Aciertos totales: <span id="aciertos-totales">0</span></p>
+            </div>
+            <button class="btn-reiniciar" onclick="reiniciarJuego()">Jugar de nuevo</button>
+            <button class="btn-menu" onclick="window.location.href='index.html'">Volver al menú</button>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="./js/alimentos.js"></script>
+</body>
+</html>

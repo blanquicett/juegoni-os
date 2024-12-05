@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Adventure</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/vocales.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú superior -->
+    <nav class="menu-principal">
+        <div class="menu-container">
+            <div class="logo">
+                <h1>🎮 Vowel Adventure</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla">
+        <div class="nivel-container">
+            <h2>Select Level</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Easy
+                    <span class="nivel-descripcion">3-4 letter words</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Intermediate
+                    <span class="nivel-descripcion">5-6 letter words</span>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="window.location.href='index.html'">← Back</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de selección de categoría -->
+    <div id="seleccion-categoria" class="pantalla" style="display: none;">
+        <div class="categoria-container">
+            <h2>Select Category</h2>
+            <div class="categorias-grid">
+                <button onclick="seleccionarCategoria('animales')" class="btn-categoria">
+                    <span class="categoria-icon">🦁</span>
+                    <h3>Animals</h3>
+                    <p>Find animal vowels</p>
+                </button>
+                <button onclick="seleccionarCategoria('colores')" class="btn-categoria">
+                    <span class="categoria-icon">🎨</span>
+                    <h3>Colors</h3>
+                    <p>Find color vowels</p>
+                </button>
+                <button onclick="seleccionarCategoria('numeros')" class="btn-categoria">
+                    <span class="categoria-icon">🔢</span>
+                    <h3>Numbers</h3>
+                    <p>Find number vowels</p>
+                </button>
+                <button onclick="seleccionarCategoria('frutas')" class="btn-categoria">
+                    <span class="categoria-icon">🍎</span>
+                    <h3>Fruits</h3>
+                    <p>Find fruit vowels</p>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="volverANiveles()">← Back</button>
+        </div>
+    </div>
+
+    <!-- Área principal del juego -->
+    <div id="juego-container" class="juego-container" style="display: none;">
+        <!-- Contenedor de puntuación -->
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Points:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="estadisticas">
+                <span>✅ Words:</span>
+                <span id="palabras-correctas">0</span>
+            </div>
+        </div>
+
+        <!-- Área del juego -->
+        <div class="juego-area">
+            <div class="imagen-container">
+                <img id="palabra-imagen" src="" alt="Word Image">
+            </div>
+            <div id="palabra-container" class="palabra-container">
+                <!-- Las letras se generarán dinámicamente -->
+            </div>
+            <div class="vocales-container">
+                <button class="vocal-btn" data-vocal="A">A</button>
+                <button class="vocal-btn" data-vocal="E">E</button>
+                <button class="vocal-btn" data-vocal="I">I</button>
+                <button class="vocal-btn" data-vocal="O">O</button>
+                <button class="vocal-btn" data-vocal="U">U</button>
+            </div>
+        </div>
+
+        <button class="btn-volver" onclick="volverACategorias()">← Back to Categories</button>
+    </div>
+
+    <!-- Modal de victoria -->
+    <div id="modal-victoria" class="modal" style="display: none;">
+        <div class="modal-contenido">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You've completed this category!</p>
+            <div class="modal-botones">
+                <button onclick="siguienteCategoria()" class="btn-siguiente">Next Category</button>
+                <button onclick="volverACategorias()" class="btn-menu">Category Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="sonido-correcto" src="./sonidos/acierto.mp3"></audio>
+    <audio id="sonido-incorrecto" src="./sonidos/perdedor.mp3"></audio>
+
+    <script src="./js/configuracion-juegos.js"></script>
+    <script src="./js/vocales.js"></script>
+</body>
+</html>

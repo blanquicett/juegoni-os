@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match - Juegos Didácticos</title>
+    <link rel="stylesheet" href="./css/memoria.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú superior -->
+    <nav class="menu-principal">
+        <div class="menu-container">
+            <div class="logo">
+                <h1>🎯 Memory Match</h1>
+            </div>
+            <button class="btn-volver" onclick="window.location.href='index.html'">
+                ← Back to Menu
+            </button>
+        </div>
+    </nav>
+
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla-nivel">
+        <div class="nivel-container">
+            <h2>Select Level</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Easy
+                    <span class="nivel-descripcion">10 PAIRS</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Medium
+                    <span class="nivel-descripcion">20 PAIRS</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de selección de categoría -->
+    <div id="seleccion-categoria" class="pantalla-categoria" style="display: none;">
+        <div class="categoria-container">
+            <h2>Select Category</h2>
+            <div class="categorias-grid">
+                <button onclick="seleccionarCategoria('animales')" class="btn-categoria">
+                    <span class="categoria-icon">🦁</span>
+                    <h3>Animals</h3>
+                </button>
+                <button onclick="seleccionarCategoria('colores')" class="btn-categoria">
+                    <span class="categoria-icon">🎨</span>
+                    <h3>Colors</h3>
+                </button>
+                <button onclick="seleccionarCategoria('numeros')" class="btn-categoria">
+                    <span class="categoria-icon">🔢</span>
+                    <h3>Numbers</h3>
+                </button>
+                <button onclick="seleccionarCategoria('profesiones')" class="btn-categoria">
+                    <span class="categoria-icon">👨‍⚕️</span>
+                    <h3>Professions</h3>
+                </button>
+                <button onclick="seleccionarCategoria('frutas')" class="btn-categoria">
+                    <span class="categoria-icon">🍎</span>
+                    <h3>Fruits</h3>
+                </button>
+                <button onclick="seleccionarCategoria('transportes')" class="btn-categoria">
+                    <span class="categoria-icon">🚗</span>
+                    <h3>Transport</h3>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="volverANiveles()">← Back</button>
+        </div>
+    </div>
+
+    <!-- Área principal del juego -->
+    <main id="juego-container" class="juego-container" style="display: none;">
+        <!-- Panel de puntuación -->
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Score:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="movimientos">
+                <span>🎯 Moves:</span>
+                <span id="contador-movimientos">0</span>
+            </div>
+            <div class="tiempo">
+                <span>⏱️ Time:</span>
+                <span id="contador-tiempo">00:00</span>
+            </div>
+        </div>
+
+        <!-- Tablero de juego -->
+        <div id="tablero" class="tablero">
+            <!-- Las cartas se generarán dinámicamente -->
+        </div>
+
+        <!-- Panel de resultados -->
+        <div id="panel-resultados" class="panel-resultados" style="display: none;">
+            <h2>¡Excellent Work! 🎉</h2>
+            <div class="resultados-content">
+                <p>Final Score: <span id="puntuacion-final">0</span></p>
+                <p>Total Moves: <span id="movimientos-totales">0</span></p>
+                <p>Time: <span id="tiempo-final">00:00</span></p>
+            </div>
+            <button class="btn-reiniciar" onclick="reiniciarJuego()">Play Again</button>
+            <button class="btn-menu" onclick="window.location.href='index.html'">Back to Menu</button>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="./js/memoria.js"></script>
+</body>
+</html> 

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Didácticos</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú superior -->
+    <nav class="menu-principal">
+        <div class="menu-container">
+            <div class="logo">
+                <h1>🎮 Juegos Didácticos</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal de juegos -->
+    <main class="juegos-container">
+        <!-- Juego de Palabras -->
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">🎯</div>
+                <h2>PLAY ON WORDS</h2>
+                <p>¡Aprende nuevas palabras de forma divertida!</p>
+                <div class="categorias-preview">
+                    <span>🎨 COLORS</span>
+                    <span>🏠 HOUSE</span>
+                    <span>🌿 NATURE</span>
+                </div>
+                <div class="juego-buttons">
+                    <button class="btn-jugar" onclick="seleccionarJuego('palabras')">
+                        ▶️ Jugar
+                    </button>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('palabras')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sopa de Letras -->
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">🔤</div>
+                <h2>WORD SEARCH</h2>
+                <p>¡Encuentra palabras ocultas!</p>
+                <div class="categorias-preview">
+                    <span>📚 MULTIPLE CATEGORIES</span>
+                </div>
+                <div class="juego-buttons">
+                    <a href="sopletras.html" class="btn-jugar">
+                        ▶️ Jugar
+                    </a>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('sopaLetras')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">📝</div>
+                <h2>VOWEL ADVENTURE</h2>
+                <p>¡Aprende vocales con imágenes divertidas!</p>
+                <div class="categorias-preview">
+                    <span>🔤 VOWELS</span>
+                    <span>🎯 WORD COMPLETION</span>
+                </div>
+                <div class="juego-buttons">
+                    <a href="vocales.html" class="btn-jugar">
+                        ▶️ Jugar
+                    </a>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('vocales')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">🦁</div>
+                <h2>ANIMAL MATCH</h2>
+                <p>¡Relaciona animales con sus nombres!</p>
+                <div class="categorias-preview">
+                    <span>🐾 MEMORY</span>
+                    <span>🎯 MATCHING</span>
+                </div>
+                <div class="juego-buttons">
+                    <a href="animales.html" class="btn-jugar">
+                        ▶️ Jugar
+                    </a>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('animales')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">👨‍👩‍👧‍👦</div>
+                <h2>FAMILY TREE</h2>
+                <p>¡Aprende relaciones familiares!</p>
+                <div class="categorias-preview">
+                    <span>👪 FAMILY</span>
+                    <span>🤝 FRIENDS</span>
+                </div>
+                <div class="juego-buttons">
+                    <a href="familia.html" class="btn-jugar">
+                        ▶️ Jugar
+                    </a>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('familia')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">🍽️</div>
+                <h2>FOOD SORTING</h2>
+                <p>¡Aprende categorías de alimentos!</p>
+                <div class="categorias-preview">
+                    <span>🍎 FRUITS</span>
+                    <span>🥕 VEGETABLES</span>
+                </div>
+                <div class="juego-buttons">
+                    <a href="Alimentos.html" class="btn-jugar">
+                        ▶️ Jugar
+                    </a>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('comidas')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="juego-card">
+            <div class="juego-content">
+                <div class="juego-icon">👨‍⚕️</div>
+                <h2>JOB MATCH</h2>
+                <p>¡Aprende sobre diferentes trabajos!</p>
+                <div class="categorias-preview">
+                    <span>💼 PROFESSIONS</span>
+                    <span>🔨 TOOLS</span>
+                </div>
+                <div class="juego-buttons">
+                    <a href="memoria.html" class="btn-jugar">
+                        ▶️ Jugar
+                    </a>
+                    <button class="btn-instrucciones" onclick="mostrarInstrucciones('profesiones')">
+                        ❓ Instrucciones
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla" style="display: none;">
+        <div class="nivel-container">
+            <h2>Selecciona un nivel</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Fácil
+                    <span class="nivel-descripcion">Para principiantes</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Intermedio
+                    <span class="nivel-descripcion">Mayor desafío</span>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="volverAInicio()">← Volver</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de selección de categoría -->
+    <div id="seleccion-categoria" class="pantalla" style="display: none;">
+        <div class="categoria-container">
+            <h2>Selecciona una categoría</h2>
+            <div class="categorias-grid">
+                <div class="categoria-card" onclick="seleccionarCategoria('colores')">
+                    <div class="categoria-icon">🎨</div>
+                    <h3>Colores</h3>
+                    <p>Aprende los colores básicos</p>
+                </div>
+                <div class="categoria-card" onclick="seleccionarCategoria('casa')">
+                    <div class="categoria-icon">🏠</div>
+                    <h3>Casa</h3>
+                    <p>Objetos del hogar</p>
+                </div>
+                <div class="categoria-card" onclick="seleccionarCategoria('naturaleza')">
+                    <div class="categoria-icon">🌿</div>
+                    <h3>Naturaleza</h3>
+                    <p>Elementos naturales</p>
+                </div>
+            </div>
+            <button class="btn-volver" onclick="volverANiveles()">← Volver</button>
+        </div>
+    </div>
+
+    <!-- Área principal del juego -->
+    <div id="juego-principal" class="pantalla" style="display: none;">
+        <!-- Contenedor de puntuación -->
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Puntos:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="estadisticas">
+                <span>✅ Palabras:</span>
+                <span id="palabras-correctas">0</span>
+            </div>
+        </div>
+
+        <!-- Área del juego -->
+        <div id="juego" class="juego-container">
+            <div class="pista-container">
+                <img id="pista-imagen" src="" alt="Pista">
+                <p id="pista-texto"></p>
+            </div>
+            <div id="palabra-container" class="palabra-container"></div>
+            <div id="letras-container" class="letras-container"></div>
+        </div>
+
+        <button class="btn-volver" onclick="volverACategorias()">← Volver</button>
+    </div>
+
+    <!-- Modal de logros -->
+    <div id="logro-modal" class="modal">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h2>¡Logros Desbloqueados!</h2>
+                <span class="cerrar-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="insignias-grid"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-continuar">¡Genial!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/scrip.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de Letras</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/letras.css">
+</head>
+<body>
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla">
+        <div class="nivel-container">
+            <h2>Select Level</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Easy
+                    <span class="nivel-descripcion">8x8 grid</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Medium
+                    <span class="nivel-descripcion">12x12 grid</span>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="window.location.href='index.html'">← Back</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de selección de categoría -->
+    <div id="seleccion-categoria" class="pantalla" style="display: none;">
+        <div class="categoria-container">
+            <h2>Select Category</h2>
+            <div class="categorias-grid">
+                <button onclick="seleccionarCategoria('colores')" class="btn-categoria">
+                    <span class="categoria-icon">🎨</span>
+                    <h3>Colors</h3>
+                    <p>Find basic colors</p>
+                </button>
+                <button onclick="seleccionarCategoria('animales')" class="btn-categoria">
+                    <span class="categoria-icon">🦁</span>
+                    <h3>Animals</h3>
+                    <p>Find animal names</p>
+                </button>
+                <button onclick="seleccionarCategoria('numeros')" class="btn-categoria">
+                    <span class="categoria-icon">🔢</span>
+                    <h3>Numbers</h3>
+                    <p>Find number words</p>
+                </button>
+                <button onclick="seleccionarCategoria('profesiones')" class="btn-categoria">
+                    <span class="categoria-icon">👨‍💼</span>
+                    <h3>Jobs</h3>
+                    <p>Find profession names</p>
+                </button>
+                <button onclick="seleccionarCategoria('frutas')" class="btn-categoria">
+                    <span class="categoria-icon">🍎</span>
+                    <h3>Fruits</h3>
+                    <p>Find fruit names</p>
+                </button>
+                <button onclick="seleccionarCategoria('transportes')" class="btn-categoria">
+                    <span class="categoria-icon">🚗</span>
+                    <h3>Transport</h3>
+                    <p>Find vehicle names</p>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="volverANiveles()">← Back</button>
+        </div>
+    </div>
+
+    <!-- Área principal del juego -->
+    <div id="juego-container" class="juego-container" style="display: none;">
+        <!-- Contenedor de Puntuación -->
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Points:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="estadisticas">
+                <span>✅ Words:</span>
+                <span id="palabras-correctas">0</span>
+            </div>
+        </div>
+
+        <!-- Contenedor Principal del Juego -->
+        <div class="sopa-letras-container">
+            <!-- Panel Izquierdo: Lista de Palabras -->
+            <div class="panel-palabras">
+                <h2>Words to Find</h2>
+                <div class="lista-palabras" id="lista-palabras">
+                    <!-- Las palabras se agregarán dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Panel Central: Cuadrícula de Sopa de Letras -->
+            <div class="tablero-container">
+                <div class="tablero" id="tablero-sopa">
+                    <!-- La cuadrícula se generará dinámicamente -->
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-volver" onclick="volverACategorias()">← Back to Categories</button>
+    </div>
+
+    <script src="./js/configuracion-juegos.js"></script>
+    <script src="./js/letras.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Match</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/animales.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú superior -->
+    <nav class="menu-principal">
+        <div class="menu-container">
+            <div class="logo">
+                <h1>🎮 Animal Match</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla">
+        <div class="nivel-container">
+            <h2>Select Level</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Easy
+                    <span class="nivel-descripcion">4x4 grid</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Intermediate
+                    <span class="nivel-descripcion">6x6 grid</span>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="window.location.href='index.html'">← Back</button>
+        </div>
+    </div>
+
+    <!-- Área principal del juego -->
+    <div id="juego-principal" class="pantalla" style="display: none;">
+        <!-- Contenedor de puntuación -->
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Points:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="estadisticas">
+                <span>🎯 Moves:</span>
+                <span id="contador-movimientos">0</span>
+            </div>
+            <div class="parejas">
+                <span>✅ Matches:</span>
+                <span id="parejas-encontradas">0</span>
+            </div>
+        </div>
+
+        <!-- Tablero de juego -->
+        <div id="tablero" class="tablero">
+            <!-- Las cartas se generarán dinámicamente -->
+        </div>
+
+        <button class="btn-volver" onclick="volverANiveles()">← Back to Levels</button>
+    </div>
+
+    <!-- Modal de victoria -->
+    <div id="modal-victoria" class="modal">
+        <div class="modal-contenido">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You've completed this level!</p>
+            <div class="estadisticas-finales">
+                <p>Total Moves: <span id="total-movimientos">0</span></p>
+                <p>Points: <span id="total-puntos">0</span></p>
+            </div>
+            <div class="modal-botones">
+                <button onclick="siguienteNivel()" class="btn-siguiente">Next Level</button>
+                <button onclick="volverANiveles()" class="btn-menu">Level Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="sonido-correcto" src="./sonidos/acierto.mp3"></audio>
+    <audio id="sonido-incorrecto" src="./sonidos/perdedor.mp3"></audio>
+    <audio id="sonido-victoria" src="./sonidos/victoria.mp3"></audio>
+
+    <script src="./js/animales.js"></script>
+</body>
+</html>

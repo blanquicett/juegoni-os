@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Professions</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/familia.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menú superior -->
+    <nav class="menu-principal">
+        <div class="menu-container">
+            <div class="logo">
+                <h1>🎮 Family Professions</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pantalla de selección de nivel -->
+    <div id="seleccion-nivel" class="pantalla">
+        <div class="nivel-container">
+            <h2>Select Level</h2>
+            <div class="niveles">
+                <button onclick="seleccionarNivel('facil')" class="btn-nivel">
+                    Easy
+                    <span class="nivel-descripcion">Basic Professions</span>
+                </button>
+                <button onclick="seleccionarNivel('intermedio')" class="btn-nivel">
+                    Intermediate
+                    <span class="nivel-descripcion">Advanced Professions</span>
+                </button>
+            </div>
+            <button class="btn-volver" onclick="window.location.href='index.html'">← Back</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de selección de categoría -->
+    <div id="seleccion-categoria" class="pantalla" style="display: none;">
+        <h2>Select Category</h2>
+        <div class="categorias-container">
+            <!-- Las categorías se generarán dinámicamente -->
+        </div>
+        <button class="btn-volver" onclick="volverANiveles()">← Back to Levels</button>
+    </div>
+
+    <!-- Área principal del juego -->
+    <div id="juego-principal" class="pantalla" style="display: none;">
+        <div class="puntuacion-container">
+            <div class="puntos">
+                <span>🌟 Points:</span>
+                <span id="contador-puntos">0</span>
+            </div>
+            <div class="tiempo">
+                <span>⏱️ Time:</span>
+                <span id="contador-tiempo">60</span>
+            </div>
+            <div class="parejas">
+                <span>✅ Matches:</span>
+                <span id="parejas-encontradas">0</span>/<span id="total-parejas">0</span>
+            </div>
+        </div>
+
+        <div class="categoria-actual">
+            <h3 id="categoria-nombre">Category Name</h3>
+        </div>
+
+        <div class="juego-container">
+            <div class="profesiones-container">
+                <!-- Contenedor izquierdo para profesiones -->
+            </div>
+            <div class="herramientas-container">
+                <!-- Contenedor derecho para herramientas/lugares -->
+            </div>
+        </div>
+
+        <button class="btn-pista" onclick="mostrarPista()">💡 Show Hint</button>
+        <button class="btn-volver" onclick="volverACategorias()">← Back to Categories</button>
+    </div>
+
+    <!-- Modal de pista -->
+    <div id="modal-pista" class="modal">
+        <div class="modal-contenido">
+            <h3>Hint</h3>
+            <p id="texto-pista"></p>
+            <button onclick="cerrarPista()" class="btn-cerrar">Close</button>
+        </div>
+    </div>
+
+    <!-- Modal de victoria de categoría -->
+    <div id="modal-categoria-completada" class="modal">
+        <div class="modal-contenido">
+            <h2>🎉 Category Completed! 🎉</h2>
+            <div class="estadisticas-categoria">
+                <p>Points earned: <span id="puntos-categoria">0</span></p>
+                <p>Time remaining: <span id="tiempo-restante">0</span>s</p>
+                <p>Matches found: <span id="total-parejas-encontradas">0</span></p>
+            </div>
+            <div class="modal-botones">
+                <button onclick="siguienteCategoria()" class="btn-siguiente">Next Category</button>
+                <button onclick="volverACategorias()" class="btn-menu">Category Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de victoria del nivel -->
+    <div id="modal-victoria" class="modal">
+        <div class="modal-contenido">
+            <h2>🏆 Level Completed! 🏆</h2>
+            <div class="estadisticas-finales">
+                <p>Total Points: <span id="total-puntos">0</span></p>
+                <p>Categories Completed: <span id="total-categorias">0</span></p>
+            </div>
+            <div class="modal-botones">
+                <button onclick="siguienteNivel()" class="btn-siguiente">Next Level</button>
+                <button onclick="volverANiveles()" class="btn-menu">Level Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="sonido-correcto" src="./sonidos/acierto.mp3"></audio>
+    <audio id="sonido-incorrecto" src="./sonidos/perdedor.mp3"></audio>
+    <audio id="sonido-victoria" src="./sonidos/victoria.mp3"></audio>
+
+    <script src="./js/familia.js"></script>
+</body>
+</html>

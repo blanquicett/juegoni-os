@@ -1,0 +1,254 @@
+/* Estilos para la selección de categorías */
+.categorias-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.categoria-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.categoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.categoria-card.completada {
+    border: 2px solid var(--color-secondary);
+}
+
+.categoria-card.bloqueada {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.categoria-card .categoria-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Área principal del juego */
+.juego-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center; 
+    gap: 40px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.profesiones-container,
+.herramientas-container {
+    width: 300px; /* Ancho fijo */
+    flex: 0 0 300px; /* No crecer, no encoger, base 300px */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    min-height: 300px;
+}
+
+/* Elementos arrastrables */
+.elemento-arrastrable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: move;
+    transition: all 0.3s ease;
+    height: fit-content;
+    width: 100%;
+    padding: 8px 12px;
+}
+
+.elemento-arrastrable img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.elemento-arrastrable.arrastrando {
+    opacity: 0.5;
+    transform: scale(1.05);
+}
+
+.elemento-arrastrable.correcto {
+    border-color: var(--color-secondary);
+    background-color: rgba(var(--color-secondary-rgb), 0.1);
+}
+
+.elemento-arrastrable.incorrecto {
+    border-color: #ff4444;
+    animation: shake 0.5s ease;
+}
+
+/* Zona de destino */
+.zona-destino {
+    border: 2px dashed var(--color-primary);
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zona-destino.hover {
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+    border-style: solid;
+}
+
+/* Categoría actual */
+.categoria-actual {
+    text-align: center;
+    background: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+/* Temporizador y puntuación */
+.puntuacion-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.tiempo {
+    color: var(--color-text);
+    font-size: 1.1em;
+}
+
+.tiempo.urgente {
+    color: #ff4444;
+    animation: parpadeo 1s infinite;
+}
+
+/* Animaciones */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes celebracion {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Línea de conexión */
+.linea-conexion {
+    position: absolute;
+    background-color: var(--color-primary);
+    height: 2px;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+/* Modal de victoria */
+.estadisticas-categoria,
+.estadisticas-finales {
+    background: rgba(var(--color-primary-rgb), 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.estadisticas-categoria p,
+.estadisticas-finales p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .juego-container {
+        flex-direction: column;
+    }
+
+    .profesiones-container,
+    .herramientas-container {
+        min-height: 200px;
+    }
+
+    .elemento-arrastrable {
+        padding: 10px;
+    }
+
+    .elemento-arrastrable img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .puntuacion-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .categorias-container {
+        grid-template-columns: 1fr;
+    }
+
+    .categoria-card {
+        padding: 15px;
+    }
+
+    .elemento-arrastrable {
+        font-size: 0.9em;
+    }
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.elemento-arrastrable {
+    /* ... estilos existentes ... */
+    animation: slideIn 0.5s ease;
+}
